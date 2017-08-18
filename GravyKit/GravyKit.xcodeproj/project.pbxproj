@@ -11,6 +11,8 @@
 		5A85A12B1E3D08EA000ED07C /* GravyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A85A11D1E3D08EA000ED07C /* GravyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A85A1341E3D0993000ED07C /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A1331E3D0993000ED07C /* NSLocking+Extensions.swift */; };
 		5A85A1361E3D0A8F000ED07C /* NSLockingExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A1351E3D0A8F000ED07C /* NSLockingExtensionsTest.swift */; };
+		5ADA91CF1F46FAE800C884EE /* Optional+Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA91CE1F46FAE800C884EE /* Optional+Unwrap.swift */; };
+		5ADA91D31F46FEC400C884EE /* OptionalUnwrapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA91D21F46FEC400C884EE /* OptionalUnwrapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		5A85A12A1E3D08EA000ED07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A85A1331E3D0993000ED07C /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
 		5A85A1351E3D0A8F000ED07C /* NSLockingExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLockingExtensionsTest.swift; sourceTree = "<group>"; };
+		5ADA91CE1F46FAE800C884EE /* Optional+Unwrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Unwrap.swift"; sourceTree = "<group>"; };
+		5ADA91D21F46FEC400C884EE /* OptionalUnwrapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalUnwrapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		5A85A11C1E3D08EA000ED07C /* GravyKit */ = {
 			isa = PBXGroup;
 			children = (
+				5ADA91CD1F46FABC00C884EE /* SwiftKit */,
 				5A85A1321E3D0925000ED07C /* FoundationKit */,
 				5A85A11D1E3D08EA000ED07C /* GravyKit.h */,
 				5A85A11E1E3D08EA000ED07C /* Info.plist */,
@@ -85,6 +90,7 @@
 			children = (
 				5A85A12A1E3D08EA000ED07C /* Info.plist */,
 				5A85A1351E3D0A8F000ED07C /* NSLockingExtensionsTest.swift */,
+				5ADA91D21F46FEC400C884EE /* OptionalUnwrapTests.swift */,
 			);
 			path = GravyKitTests;
 			sourceTree = "<group>";
@@ -95,6 +101,14 @@
 				5A85A1331E3D0993000ED07C /* NSLocking+Extensions.swift */,
 			);
 			path = FoundationKit;
+			sourceTree = "<group>";
+		};
+		5ADA91CD1F46FABC00C884EE /* SwiftKit */ = {
+			isa = PBXGroup;
+			children = (
+				5ADA91CE1F46FAE800C884EE /* Optional+Unwrap.swift */,
+			);
+			path = SwiftKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +177,7 @@
 					};
 					5A85A1221E3D08EA000ED07C = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -209,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A85A1341E3D0993000ED07C /* NSLocking+Extensions.swift in Sources */,
+				5ADA91CF1F46FAE800C884EE /* Optional+Unwrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADA91D31F46FEC400C884EE /* OptionalUnwrapTests.swift in Sources */,
 				5A85A1361E3D0A8F000ED07C /* NSLockingExtensionsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +504,7 @@
 				5A85A12E1E3D08EA000ED07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A85A12F1E3D08EA000ED07C /* Build configuration list for PBXNativeTarget "GravyKitTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +513,7 @@
 				5A85A1311E3D08EA000ED07C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
