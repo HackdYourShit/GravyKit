@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3C36681F5016DF00CB1348 /* RootViewGettableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C36671F5016DF00CB1348 /* RootViewGettableTests.swift */; };
+		5A5104B01F4FF63900C0C632 /* UIViewController+RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */; };
 		5A85A1241E3D08EA000ED07C /* GravyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A85A11A1E3D08EA000ED07C /* GravyKit.framework */; };
 		5A85A12B1E3D08EA000ED07C /* GravyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A85A11D1E3D08EA000ED07C /* GravyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A85A1341E3D0993000ED07C /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A85A1331E3D0993000ED07C /* NSLocking+Extensions.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A3C36671F5016DF00CB1348 /* RootViewGettableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewGettableTests.swift; sourceTree = "<group>"; };
+		5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootView.swift"; sourceTree = "<group>"; };
 		5A85A11A1E3D08EA000ED07C /* GravyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GravyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A85A11D1E3D08EA000ED07C /* GravyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GravyKit.h; sourceTree = "<group>"; };
 		5A85A11E1E3D08EA000ED07C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A5104AE1F4FF5EA00C0C632 /* UIKitKit */ = {
+			isa = PBXGroup;
+			children = (
+				5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */,
+			);
+			name = UIKitKit;
+			sourceTree = "<group>";
+		};
 		5A85A10E1E3D0823000ED07C = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +91,7 @@
 			children = (
 				5ADA91CD1F46FABC00C884EE /* SwiftKit */,
 				5A85A1321E3D0925000ED07C /* FoundationKit */,
+				5A5104AE1F4FF5EA00C0C632 /* UIKitKit */,
 				5A85A11D1E3D08EA000ED07C /* GravyKit.h */,
 				5A85A11E1E3D08EA000ED07C /* Info.plist */,
 			);
@@ -91,6 +104,7 @@
 				5A85A12A1E3D08EA000ED07C /* Info.plist */,
 				5A85A1351E3D0A8F000ED07C /* NSLockingExtensionsTest.swift */,
 				5ADA91D21F46FEC400C884EE /* OptionalUnwrapTests.swift */,
+				5A3C36671F5016DF00CB1348 /* RootViewGettableTests.swift */,
 			);
 			path = GravyKitTests;
 			sourceTree = "<group>";
@@ -168,7 +182,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				TargetAttributes = {
 					5A85A1191E3D08EA000ED07C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -223,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A85A1341E3D0993000ED07C /* NSLocking+Extensions.swift in Sources */,
+				5A5104B01F4FF63900C0C632 /* UIViewController+RootView.swift in Sources */,
 				5ADA91CF1F46FAE800C884EE /* Optional+Unwrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A3C36681F5016DF00CB1348 /* RootViewGettableTests.swift in Sources */,
 				5ADA91D31F46FEC400C884EE /* OptionalUnwrapTests.swift in Sources */,
 				5A85A1361E3D0A8F000ED07C /* NSLockingExtensionsTest.swift in Sources */,
 			);
@@ -250,12 +266,48 @@
 		5A85A1131E3D0823000ED07C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		5A85A1141E3D0823000ED07C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 			};
 			name = Release;
 		};
@@ -281,7 +333,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -307,7 +359,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = GravyKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +398,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -366,7 +418,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = GravyKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = local.kradenkov.GravyKit;
