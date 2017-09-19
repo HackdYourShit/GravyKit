@@ -10,7 +10,7 @@ import XCTest
 import GravyKit
 
 class OptionalUnwrapTests: XCTestCase {
-	
+
 	func testUnwrapTwoOptionals() {
 		[
 			unwrapped(1),
@@ -19,30 +19,29 @@ class OptionalUnwrapTests: XCTestCase {
 			unwrapped(1, 2, 3, 4)
 			]
 			.forEach { XCTAssertNotNil($0) }
-		
+
 		[
 			unwrapped(nil),
-			
+
 			unwrapped(nil, 2),
 			unwrapped(1, nil),
 			unwrapped(nil, nil),
-			
-			
+
 			unwrapped(nil, 2, 3),
 			unwrapped(1, nil, 3),
 			unwrapped(1, 2, nil),
 			unwrapped(nil, nil, nil),
-			
+
 			unwrapped(nil, 2, 3, 4),
 			unwrapped(1, nil, 3, 4),
 			unwrapped(1, 2, nil, 4),
 			unwrapped(1, 2, 3, nil),
 			unwrapped(nil, nil, nil, nil)
-			
+
 			]
 			.forEach { XCTAssertNil($0) }
-    }
-	
+	}
+
 	private func unwrapped(_ values:Any?...) -> Any? {
 		let count = values.count
 		switch values.count {
@@ -59,5 +58,4 @@ class OptionalUnwrapTests: XCTestCase {
 			return nil
 		}
 	}
-    
 }

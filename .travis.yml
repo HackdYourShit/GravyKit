@@ -1,0 +1,8 @@
+language: objective-c
+os: osx
+osx_image: xcode8.3
+xcode_project: GravyKit/GravyKit.xcodeproj
+xcode_scheme: GravyKitTests
+xcode_sdk: iphonesimulator
+script:
+    xctool run-tests -test-sdk iphonesimulator -project GravyKit/GravyKit.xcodeproj scheme GravyKit

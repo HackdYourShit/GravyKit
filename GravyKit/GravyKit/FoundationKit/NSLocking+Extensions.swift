@@ -9,10 +9,10 @@
 import Foundation
 
 public extension NSLocking {
-   func sync<T>(_ block:() throws -> T) rethrows -> T {
-      defer { self.unlock() }
-      self.lock()
-      
-      return try block()
-   }
+	func sync<T>(_ block:() throws -> T) rethrows -> T {
+		defer { self.unlock() }
+		self.lock()
+
+		return try block()
+	}
 }

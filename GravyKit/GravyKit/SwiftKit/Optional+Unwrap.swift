@@ -6,6 +6,17 @@
 //
 //
 
+public extension Optional {
+	func orFail(with error: Error) throws -> Wrapped {
+		switch self {
+		case .some(let value):
+			return value
+		default:
+			throw error
+		}
+	}
+}
+
 // According my observations, using `flatMap()` to unwrap Optional values is twise slower.
 // So, I just used `copy-paste` approach. Sorry if your eyes heart bacause of this :)
 
@@ -26,6 +37,7 @@ public func unwrap<T, U>(_ first: T?, _ second: U?) -> (T, U)? {
 	}
 }
 
+//swiftlint:disable large_tuple
 public func unwrap<T, U, V>(_ first: T?, _ second: U?, _ third: V?) -> (T, U, V)? {
 	switch (first, second, third) {
 	case (.some(let firstValue), .some(let secondValue), .some(let thirdValue)):
@@ -43,3 +55,5 @@ public func unwrap<T, U, V, W>(_ first: T?, _ second: U?, _ third: V?, _ fourth:
 		return nil
 	}
 }
+
+//swiftlint:enable large_tuple

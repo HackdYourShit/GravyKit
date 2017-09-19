@@ -17,7 +17,7 @@ extension RootViewGettable where Self: UIViewController {
 	public var rootView: ViewType? {
 		return self.loadedView as? ViewType
 	}
-	
+
 	/// Returns the view controller's view if loaded, nil if not.
 	private var loadedView: UIView? {
 		if #available(iOS 9.0, *) {
