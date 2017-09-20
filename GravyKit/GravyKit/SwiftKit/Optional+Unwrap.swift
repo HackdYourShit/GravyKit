@@ -6,6 +6,32 @@
 //
 //
 
+public struct OptionalUnwrapError: Error, CustomStringConvertible {
+	let message: String
+	let file: StaticString
+	let function: StaticString
+	let line: UInt
+
+	init(_ message: @autoclosure () -> String,
+	     file: StaticString = #file,
+	     function: StaticString = #function,
+	     line: UInt = #line) {
+		self.message = message()
+		self.file = file
+		self.function = function
+		self.line = line
+	}
+
+	public var description: String {
+		return [String(describing: type(of:self)),
+		        String(describing: file),
+		        String(describing: self.line),
+		        " " + String(describing: function),
+		        " " + message]
+			.joined(separator: ":")
+	}
+}
+
 public extension Optional {
 	func orFail(with error: Error) throws -> Wrapped {
 		switch self {
@@ -14,6 +40,17 @@ public extension Optional {
 		default:
 			throw error
 		}
+	}
+
+	func orFail(_ message: @autoclosure () -> String = {
+		return String(describing: Optional<Wrapped>.self) +
+			NSLocalizedString(" value is .none",
+			                  comment: "default error message for failed optional unwrap")
+		}(),
+	            file: StaticString = #file,
+	            function: StaticString = #function,
+	            line: UInt = #line) throws -> Wrapped {
+		return try self.orFail(with: OptionalUnwrapError(message, file: file, function: function, line: line))
 	}
 }
 

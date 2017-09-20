@@ -11,6 +11,25 @@ import GravyKit
 
 class OptionalUnwrapTests: XCTestCase {
 
+	func testOrFailWithError() {
+		var value: Int? = nil
+
+		var result: Int!
+
+		XCTAssertNil( result?.advanced(by: 0) )
+
+		XCTAssertThrowsError(result = try value.orFail() , "nil.orFail() must throw", { error in
+			XCTAssertTrue( error is OptionalUnwrapError)
+		})
+
+		XCTAssertNil( result?.advanced(by: 0) )
+
+		value = 42
+
+		XCTAssertNoThrow(result = try value.orFail())
+		XCTAssertEqual(result, 42)
+	}
+
 	func testUnwrapTwoOptionals() {
 		[
 			unwrapped(1),
