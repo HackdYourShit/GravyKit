@@ -3,6 +3,6 @@ os: osx
 osx_image: xcode8.3
 xcode_project: GravyKit/GravyKit.xcodeproj
 xcode_scheme: GravyKitTests
-xcode_sdk: iphonesimulator10.3
-#script:
-#    xctool run-tests -test-sdk iphonesimulator10.3 -project GravyKit/GravyKit.xcodeproj scheme GravyKit
+#xcode_sdk: iphonesimulator10.3
+script:
+    xctool run-tests -test-sdk iphonesimulator10.3 -project GravyKit/GravyKit.xcodeproj scheme GravyKit
