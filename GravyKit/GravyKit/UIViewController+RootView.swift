@@ -27,3 +27,19 @@ extension RootViewGettable where Self: UIViewController {
 		}
 	}
 }
+
+extension UIView {
+	/// Breadth-first search for subview that matches specified type
+	public func findSubview<T>(ofType type: T.Type) -> T? where T: UIView {
+		var queue = subviews
+		while !queue.isEmpty {
+			let subview = queue.removeFirst()
+			if let subview = subview as? T {
+				return subview
+			}
+			queue.append(contentsOf: subview.subviews)
+		}
+
+		return nil
+	}
+}
