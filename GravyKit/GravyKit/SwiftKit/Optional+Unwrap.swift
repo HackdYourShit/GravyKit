@@ -23,7 +23,7 @@ public struct OptionalUnwrapError: Error, CustomStringConvertible {
 	}
 
 	public var description: String {
-		return [String(describing: type(of:self)),
+		return [String(describing: type(of: self)),
 		        String(describing: file),
 		        String(describing: self.line),
 		        " " + String(describing: function),
@@ -32,8 +32,8 @@ public struct OptionalUnwrapError: Error, CustomStringConvertible {
 	}
 }
 
-public extension Optional {
-	func orFail(with error: Error) throws -> Wrapped {
+extension Optional {
+	public func orFail(with error: Error) throws -> Wrapped {
 		switch self {
 		case .some(let value):
 			return value
@@ -41,16 +41,18 @@ public extension Optional {
 			throw error
 		}
 	}
-
-	func orFail(_ message: @autoclosure () -> String = {
-		return String(describing: Optional<Wrapped>.self) +
-			NSLocalizedString(" value is .none",
-			                  comment: "default error message for failed optional unwrap")
-		}(),
-	            file: StaticString = #file,
-	            function: StaticString = #function,
-	            line: UInt = #line) throws -> Wrapped {
-		return try self.orFail(with: OptionalUnwrapError(message, file: file, function: function, line: line))
+    
+    public func orFail(_ message: @autoclosure () -> String = {
+        return String(describing: Optional<Wrapped>.self) +
+            NSLocalizedString(
+                " value is .none",
+                comment: "default error message for failed optional unwrap"
+        )
+        }(),
+                       file: StaticString = #file,
+                       function: StaticString = #function,
+                       line: UInt = #line) throws -> Wrapped {
+        return try self.orFail(with: OptionalUnwrapError(message, file: file, function: function, line: line))
 	}
 }
 
@@ -67,7 +69,7 @@ public func unwrap<T>(_ value: T?) -> (T)? {
 
 public func unwrap<T, U>(_ first: T?, _ second: U?) -> (T, U)? {
 	switch (first, second) {
-	case (.some(let firstValue), .some(let secondValue)):
+	case let (.some(firstValue), .some(secondValue)):
 		return (firstValue, secondValue)
 	default:
 		return nil
@@ -75,22 +77,23 @@ public func unwrap<T, U>(_ first: T?, _ second: U?) -> (T, U)? {
 }
 
 //swiftlint:disable large_tuple
+
 public func unwrap<T, U, V>(_ first: T?, _ second: U?, _ third: V?) -> (T, U, V)? {
-	switch (first, second, third) {
-	case (.some(let firstValue), .some(let secondValue), .some(let thirdValue)):
-		return (firstValue, secondValue, thirdValue)
-	default:
-		return nil
-	}
+    switch (first, second, third) {
+    case let (.some(firstValue), .some(secondValue), .some(thirdValue)):
+        return (firstValue, secondValue, thirdValue)
+    default:
+        return nil
+    }
 }
 
 public func unwrap<T, U, V, W>(_ first: T?, _ second: U?, _ third: V?, _ fourth: W?) -> (T, U, V, W)? {
-	switch (first, second, third, fourth) {
-	case (.some(let firstValue), .some(let secondValue), .some(let thirdValue), .some(let fourth)):
-		return (firstValue, secondValue, thirdValue, fourth)
-	default:
-		return nil
-	}
+    switch (first, second, third, fourth) {
+    case let (.some(firstValue), .some(secondValue), .some(thirdValue), .some(fourthValue)):
+        return (firstValue, secondValue, thirdValue, fourthValue)
+    default:
+        return nil
+    }
 }
 
 //swiftlint:enable large_tuple

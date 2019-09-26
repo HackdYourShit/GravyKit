@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension NSLocking {
-	func sync<T>(_ block:() throws -> T) rethrows -> T {
+extension NSLocking {
+	public func sync<T>(_ block:() throws -> T) rethrows -> T {
 		defer { self.unlock() }
 		self.lock()
 
