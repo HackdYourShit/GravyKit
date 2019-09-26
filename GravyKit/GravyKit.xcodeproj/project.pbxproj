@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A35F1F7233CDF1600FE5BE1 /* CGGeometryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35F1F6233CDF1600FE5BE1 /* CGGeometryExtensionsTests.swift */; };
+		5A35F1F9233CDF2600FE5BE1 /* CGGeometry+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35F1F8233CDF2600FE5BE1 /* CGGeometry+Extensions.swift */; };
 		5A3C36681F5016DF00CB1348 /* RootViewGettableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3C36671F5016DF00CB1348 /* RootViewGettableTests.swift */; };
 		5A5104B01F4FF63900C0C632 /* UIViewController+RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */; };
 		5A85A1241E3D08EA000ED07C /* GravyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A85A11A1E3D08EA000ED07C /* GravyKit.framework */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A35F1F6233CDF1600FE5BE1 /* CGGeometryExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGGeometryExtensionsTests.swift; sourceTree = "<group>"; };
+		5A35F1F8233CDF2600FE5BE1 /* CGGeometry+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGeometry+Extensions.swift"; sourceTree = "<group>"; };
 		5A3C36671F5016DF00CB1348 /* RootViewGettableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewGettableTests.swift; sourceTree = "<group>"; };
 		5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootView.swift"; sourceTree = "<group>"; };
 		5A85A11A1E3D08EA000ED07C /* GravyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GravyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5104AF1F4FF63900C0C632 /* UIViewController+RootView.swift */,
+				5A35F1F8233CDF2600FE5BE1 /* CGGeometry+Extensions.swift */,
 			);
 			name = UIKitKit;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 		5A85A1271E3D08EA000ED07C /* GravyKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5A35F1F6233CDF1600FE5BE1 /* CGGeometryExtensionsTests.swift */,
 				5A85A12A1E3D08EA000ED07C /* Info.plist */,
 				5A85A1351E3D0A8F000ED07C /* NSLockingExtensionsTest.swift */,
 				5ADA91D21F46FEC400C884EE /* OptionalUnwrapTests.swift */,
@@ -240,6 +246,7 @@
 				5A85A1341E3D0993000ED07C /* NSLocking+Extensions.swift in Sources */,
 				5A5104B01F4FF63900C0C632 /* UIViewController+RootView.swift in Sources */,
 				5ADA91CF1F46FAE800C884EE /* Optional+Unwrap.swift in Sources */,
+				5A35F1F9233CDF2600FE5BE1 /* CGGeometry+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +257,7 @@
 				5A3C36681F5016DF00CB1348 /* RootViewGettableTests.swift in Sources */,
 				5ADA91D31F46FEC400C884EE /* OptionalUnwrapTests.swift in Sources */,
 				5A85A1361E3D0A8F000ED07C /* NSLockingExtensionsTest.swift in Sources */,
+				5A35F1F7233CDF1600FE5BE1 /* CGGeometryExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

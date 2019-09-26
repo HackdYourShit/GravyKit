@@ -8,15 +8,15 @@
 
 import UIKit
 
-public protocol RootViewGettable {
-	associatedtype ViewType
+public protocol RootViewContaining {
+	associatedtype RootViewType
     
-	var rootView: ViewType? { get }
+	var rootView: RootViewType? { get }
 }
 
-extension RootViewGettable where Self: UIViewController {
-	public var rootView: ViewType? {
-		return self.loadedView as? ViewType
+extension RootViewContaining where Self: UIViewController {
+	public var rootView: RootViewType? {
+		return self.loadedView as? RootViewType
 	}
 
 	/// Returns the view controller's view if loaded, nil if not.

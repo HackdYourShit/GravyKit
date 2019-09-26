@@ -15,7 +15,7 @@ class RootViewGettableTests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 
-		self.controller = RootViewGettableController.init()
+		self.controller = RootViewGettableController()
 	}
 
 	func testRootViewMustBeNilBeforeViewIsAccessed() {
@@ -48,8 +48,7 @@ class RootViewGettableTests: XCTestCase {
 		XCTAssertNotNil(controller.view)
 
 		_ = controller.rootView.map {
-			XCTAssertTrue($0.isKind(of: CustomView.self),
-			              "rootView must be inherited from CustomView")
+			XCTAssertTrue($0.isKind(of: CustomView.self), "rootView must be inherited from CustomView")
 		}
 
 		XCTAssertEqual(controller.view, self.controller.rootView)
@@ -58,11 +57,10 @@ class RootViewGettableTests: XCTestCase {
 
 class CustomView: UIView { }
 
-class RootViewGettableController: UIViewController, RootViewGettable {
-	typealias ViewType = CustomView
+class RootViewGettableController: UIViewController, RootViewContaining {
+	typealias RootViewType = CustomView
 
 	override func loadView() {
-		super.loadView()
 		self.view = CustomView()
 	}
 }
