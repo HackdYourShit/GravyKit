@@ -9,6 +9,8 @@
 import XCTest
 import GravyKit
 
+//swiftlint:disable implicitly_unwrapped_optional
+
 class RootViewGettableTests: XCTestCase {
 	var controller: RootViewGettableController!
 

@@ -9,18 +9,20 @@
 import XCTest
 import GravyKit
 
+//swiftlint:disable implicitly_unwrapped_optional
+
 class OptionalUnwrapTests: XCTestCase {
 
 	func testOrFailWithError() {
-		var value: Int? = nil
+		var value: Int?
 
 		var result: Int!
 
 		XCTAssertNil( result?.advanced(by: 0) )
 
-		XCTAssertThrowsError(result = try value.orFail() , "nil.orFail() must throw", { error in
-			XCTAssertTrue( error is OptionalUnwrapError)
-		})
+        XCTAssertThrowsError( result = try value.orFail(), "nil.orFail() must throw") { error in
+                XCTAssertTrue( error is OptionalUnwrapError)
+        }
 
 		XCTAssertNil( result?.advanced(by: 0) )
 
@@ -56,12 +58,11 @@ class OptionalUnwrapTests: XCTestCase {
 			unwrapped(1, 2, nil, 4),
 			unwrapped(1, 2, 3, nil),
 			unwrapped(nil, nil, nil, nil)
-
 			]
 			.forEach { XCTAssertNil($0) }
 	}
 
-	private func unwrapped(_ values:Any?...) -> Any? {
+	private func unwrapped(_ values: Any?...) -> Any? {
 		let count = values.count
 		switch values.count {
 		case 1:

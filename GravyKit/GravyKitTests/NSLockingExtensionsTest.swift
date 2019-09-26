@@ -9,10 +9,13 @@
 import XCTest
 @testable import GravyKit
 
+//swiftlint:disable implicitly_unwrapped_optional
+
 class NSLockingExtensionsTest: XCTestCase {
 	var lock: NSLocking!
 
 	override func setUp() {
+        super.setUp()
 		lock = MockLock()
 	}
 
@@ -37,7 +40,7 @@ class NSLockingExtensionsTest: XCTestCase {
 
 class MockError: Error {}
 
-private class MockLock: NSLocking {
+class MockLock: NSLocking {
 	var isLocked = false
 
 	// MARK: - NSLocking
