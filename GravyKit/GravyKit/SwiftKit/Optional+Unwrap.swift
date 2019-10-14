@@ -7,40 +7,42 @@
 //
 
 public struct OptionalUnwrapError: Error, CustomStringConvertible {
-	let message: String
-	let file: StaticString
-	let function: StaticString
-	let line: UInt
-
-	init(_ message: @autoclosure () -> String,
-	     file: StaticString = #file,
-	     function: StaticString = #function,
-	     line: UInt = #line) {
-		self.message = message()
-		self.file = file
-		self.function = function
-		self.line = line
-	}
-
-	public var description: String {
-		return [String(describing: type(of: self)),
-		        String(describing: file),
-		        String(describing: self.line),
-		        " " + String(describing: function),
-		        " " + message]
-			.joined(separator: ":")
-	}
+    let message: String
+    let file: StaticString
+    let function: StaticString
+    let line: UInt
+    
+    init(_ message: @autoclosure () -> String,
+         file: StaticString = #file,
+         function: StaticString = #function,
+         line: UInt = #line) {
+        self.message = message()
+        self.file = file
+        self.function = function
+        self.line = line
+    }
+    
+    public var description: String {
+        return [
+            String(describing: type(of: self)),
+            String(describing: file),
+            String(describing: self.line),
+            " \(function)",
+            " \(message)"
+            ]
+            .joined(separator: ":")
+    }
 }
 
 extension Optional {
-	public func orFail(with error: Error) throws -> Wrapped {
-		switch self {
-		case .some(let value):
-			return value
-		default:
-			throw error
-		}
-	}
+    public func orFail(with error: Error) throws -> Wrapped {
+        switch self {
+        case .some(let value):
+            return value
+        default:
+            throw error
+        }
+    }
     
     public func orFail(_ message: @autoclosure () -> String = {
         return String(describing: Optional<Wrapped>.self) +
@@ -53,27 +55,27 @@ extension Optional {
                        function: StaticString = #function,
                        line: UInt = #line) throws -> Wrapped {
         return try self.orFail(with: OptionalUnwrapError(message, file: file, function: function, line: line))
-	}
+    }
 }
 
 // According my observations, using `flatMap()` to unwrap Optional values is twise slower.
 // So, I just used `copy-paste` approach. Sorry if your eyes heart bacause of this :)
 
 public func unwrap<T>(_ value: T?) -> (T)? {
-	if let `value` = value {
-		return (value)
-	} else {
-		return nil
-	}
+    if let `value` = value {
+        return (value)
+    } else {
+        return nil
+    }
 }
 
 public func unwrap<T, U>(_ first: T?, _ second: U?) -> (T, U)? {
-	switch (first, second) {
-	case let (.some(firstValue), .some(secondValue)):
-		return (firstValue, secondValue)
-	default:
-		return nil
-	}
+    switch (first, second) {
+    case let (.some(firstValue), .some(secondValue)):
+        return (firstValue, secondValue)
+    default:
+        return nil
+    }
 }
 
 //swiftlint:disable large_tuple
