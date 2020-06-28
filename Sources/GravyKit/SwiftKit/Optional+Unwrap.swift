@@ -6,6 +6,8 @@
 //
 //
 
+import Foundation
+
 public struct OptionalUnwrapError: Error, CustomStringConvertible {
     let message: String
     let file: StaticString
@@ -54,7 +56,7 @@ extension Optional {
                        file: StaticString = #file,
                        function: StaticString = #function,
                        line: UInt = #line) throws -> Wrapped {
-        return try self.orFail(with: OptionalUnwrapError(message, file: file, function: function, line: line))
+        return try self.orFail(with: OptionalUnwrapError(message(), file: file, function: function, line: line))
     }
 }
 

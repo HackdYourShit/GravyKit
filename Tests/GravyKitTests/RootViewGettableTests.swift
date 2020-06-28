@@ -40,7 +40,13 @@ class RootViewGettableTests: XCTestCase {
 
 		XCTAssertFalse(controller.isViewLoaded)
 
-		controller.loadViewIfNeeded()
+        if #available(iOS 9.0, *) {
+            controller.loadViewIfNeeded()
+        } else {
+            if !controller.isViewLoaded {
+                controller.loadView()
+            }
+        }
 
 		XCTAssertTrue(controller.isViewLoaded)
 		XCTAssertNotNil(controller.view)
@@ -57,9 +63,9 @@ class RootViewGettableTests: XCTestCase {
 	}
 }
 
-class CustomView: UIView { }
+class CustomView: SystemViewType { }
 
-class RootViewGettableController: UIViewController, RootViewContaining {
+class RootViewGettableController: SystemVCType, RootViewContaining {
 	typealias RootViewType = CustomView
 
 	override func loadView() {

@@ -11,7 +11,7 @@ import GravyKit
 
 class CGGeometryExtensionsTests: XCTestCase {
 
-    func testEdgSizes() {
+    func testEdgeSizes() {
         let size = CGSize(width: 10, height: 20)
         XCTAssertEqual(size.minEdgeSize, 10)
         XCTAssertEqual(size.maxEdgeSize, 20)

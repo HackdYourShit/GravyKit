@@ -12,6 +12,7 @@ import XCTest
 //swiftlint:disable implicitly_unwrapped_optional
 
 class NSLockingExtensionsTest: XCTestCase {
+
 	var lock: NSLocking!
 
 	override func setUp() {
@@ -19,7 +20,7 @@ class NSLockingExtensionsTest: XCTestCase {
 		lock = MockLock()
 	}
 
-	func testSyncBlockCanReturnValue() {
+    func testSyncBlockCanReturnValue() {
 		let anObject = NSObject()
 
 		XCTAssertEqual(anObject, lock.sync { return anObject })
