@@ -8,22 +8,77 @@
 import XCTest
 import GravyKit
 
-class CoupledTests: XCTestCase {
+class CoupledValueTests: XCTestCase {
+    struct Value: Equatable {
+        let intValue: Int
+    }
 
-    @Coupled(with: "B", coupledBy: { $0.setString($0 as String + $1) })
-    var mutableStringValue = NSMutableString(string: "A")
+
+    @Coupled(with: 1, coupledBy: { Value(intValue: $0.intValue + $1)})
+    var value = Value(intValue: 1)
+
+    func testWrappedValueisValueType() {
+        XCTAssertFalse(type(of:value) is AnyClass)
+    }
 
     func testWrappedPropertyUpdate() {
-        XCTAssertEqual(mutableStringValue, "AB")
+        XCTAssertEqual(value, Value(intValue: 2))
 
-        mutableStringValue = NSMutableString(string: "C")
-        XCTAssertEqual(mutableStringValue, "CB")
+        value = Value(intValue: 2)
+        XCTAssertEqual(value,  Value(intValue: 3))
 
-        $mutableStringValue = "D"
-        XCTAssertEqual(mutableStringValue, "CBD")
+        $value = 5
+        XCTAssertEqual(value, Value(intValue: 8))
 
-        mutableStringValue = "E"
-        XCTAssertEqual(mutableStringValue, "ED")
+        value = Value(intValue: 5)
+        XCTAssertEqual(value, Value(intValue: 10))
 
+    }
+}
+
+class CoupledWrappedObjectWithOnUpdateClosureTests: XCTestCase {
+
+    @Coupled(with: "B", onUpdate: { $0.append($1) })
+    var value = "A" as NSMutableString
+
+    func testWrappedValueisObjectType() {
+        XCTAssertTrue(type(of:value) is AnyClass)
+    }
+
+    func testWrappedPropertyUpdate() {
+        XCTAssertEqual(value, "AB")
+
+        value = "C"
+        XCTAssertEqual(value, "CB")
+
+        $value = "D"
+        XCTAssertEqual(value, "CBD")
+
+        value = "E"
+        XCTAssertEqual(value, "ED")
+
+    }
+}
+
+class CoupledWrappedObjectWithOnUpdateMethodTests: XCTestCase {
+
+    @Coupled(with: "B", onUpdate: NSMutableString.append)
+    var value = "A" as NSMutableString
+
+    func testWrappedValueisObjectType() {
+        XCTAssertTrue(type(of:value) is AnyClass)
+    }
+
+    func testWrappedPropertyUpdate() {
+        XCTAssertEqual(value, "AB")
+
+        value = "C"
+        XCTAssertEqual(value, "CB")
+
+        $value = "D"
+        XCTAssertEqual(value, "CBD")
+
+        value = "E"
+        XCTAssertEqual(value, "ED")
     }
 }
