@@ -25,5 +25,8 @@ let package = Package(
         .testTarget(
             name: "GravyKitTests",
             dependencies: ["GravyKit"]),
+        .testTarget(
+        name: "SwiftKitTests",
+        dependencies: ["GravyKit"]),
     ]
 )
